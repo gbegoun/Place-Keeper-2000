@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="shortcut icon" href="favicon.gif"> 
+		<title>Place Keeper 2000</title>
+	</head>
+
+	<body>
+		 <header class="header">
+			 	<img src="assets/images/banner.gif" alt="Place Keeper 2000" class="banner"/>
+		</header>
+
+		<section class="body">
+			<section class="sidebar">
+				<nav class="nav">
+					<ul>
+						<li><a href="#" onclick="app.MainController.onTabChange('home')">Home</a></li>
+						<li><a href="#" onclick="app.MainController.onTabChange('map')">Map</a></li>
+						<li><a href="#" onclick="app.MainController.onTabChange('user-prf')">Preferences</a></li>
+					</ul>
+				</nav>
+			</section>
+
+			<section class="main">
+				<section class="tab" name="home">
+					<section class="home">
+						<h1>Welcome to Place Keeper 2000</h1>
+						<p>The Place Keeper 2000, folks, it’s tremendous, absolutely fantastic! A beautiful web app, very simple, but powerful, believe me. You can track your favorite places—your BEST places, okay? You can add ‘em, edit ‘em, delete ‘em—whatever you want, it’s all possible. And get this—you can export them to a CSV file, incredible, right? It’s efficient, it’s great, nobody’s ever seen anything like it. You’re gonna love it, folks, trust me!</p>
+					</section>	
+				</section>
+				
+				
+				<section class="tab" name="map">
+					<section class="map">
+						<div class="map-content"></div>
+						<section class="list-places">
+							<div class="list-controls">
+								<button class="btn_add_location" onclick="app.PlaceController.onAddPlace()">Add Place</button>
+								<button class="btn_add_location" onclick="app.PlaceController.onAddRandom()">Add random</button>
+							</div>	
+							<div class="list-view"></div>
+							<br>
+							<a href="#" onclick="app.onExportToCSV()">Download As CSV</a>
+						</section>
+					</section>
+				</section>
+
+				<section class="tab" name="user-prf">
+					<section class="user-prf">
+							<form class="user-preferences-form">
+								<h3>User Preferences</h1>
+								<div class="form-group">
+									<label for="email">E-Mail</label>
+									<input type="email" name="email" placeholder="Insert your email here" required>
+								</div>
+					
+								<div class="form-group">
+									<label for="age">Age</label>
+									<input type="range" name="age" min="0" max="100" value="18" oninput="ageValue.textContent = this.value">
+									<span id="ageValue">18</span>
+								</div>
+					
+								<h3>Colors -</h3>
+					
+								<div class="form-group">
+									<label for="background-color">Set Background Color</label>
+									<input type="color" name="background-color"/>
+								</div>
+					
+								<div class="form-group">
+									<label for="text-color">Set Text Color</label>
+									<input type="color" name="text-color"/>
+								</div>
+					
+								<div class="form-group">
+									<label for="birth-date">Birth Date</label>
+									<input type="date" name="birth-date">
+								</div>
+					
+								<div class="form-group">
+									<label for="birth-time">Birth Time</label>
+									<input type="time" name="birth-time">
+								</div>
+
+								<div class="form-group">
+									<label for="options">Which team are you?</label>
+									<select name="team-sn" required>
+										<option value="Dean">Dean</option>
+										<option value="Sam">Sam</option>
+										<option value="Other">I suck, I dont know who they are</option>
+									</select>
+								</div>
+
+								<div class = "form-buttons">
+									<button type="submit" class="btn">Set</button>
+									<button type="button" class="btn" onclick="app.userPrfController.onReset()">Reset</button>
+								</div>
+							</form>
+					</section>
+				</section>
+			</section>
+		</section>
+		
+		
+		<dialog class="place-edit-modal">
+			<h4>Add Location <span></span> </h4>
+			<form class="add-place-form" method="dialog">
+				<label for="place-name">Name</label>
+				<input type="text" class="place-name" name="name" required />
+
+				<label for="place-lat">Latitude</label>
+				<input type="number" class="place-lat" name="lat" required />
+				<div class="lat-error">value must be between -90 to 90</div>
+
+				<label for="place-lng">Longitude</label>
+				<input type="number" class="place-lng" name="lng" required />
+				<div class="lng-error">value must be between -180 to 180</div>
+
+				<button type="button" onclick="app.PlaceController.onSavePlace()">Save</button>
+			</form>
+		</dialog>
+
+		<script>
+			(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+			  key: "AIzaSyA4REMMGROHJ1jE2kdffCzdQ5BRcw6s2WA",
+			  v: "weekly",
+			});
+		  </script>
+
+		<script type="module" src="js/controllers/main.controller.js"></script>		
+		<script type="module" src="js/controllers/place.controller.js"></script>	
+		<script type="module" src="js/controllers/user-prf.controller.js"></script>	
+			
+		<script type="module" src="js/app.js"></script>		
+	</body>
+</html>

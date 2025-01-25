@@ -1,0 +1,130 @@
+html, body {
+    margin: 5; 
+    background-color: antiquewhite;
+  }
+
+.header{
+    background-color: purple;
+    padding: 5px;
+    text-align: center;
+    border-top-left-radius: 15px; 
+    border-top-right-radius: 15px; 
+}
+
+.banner {
+    background-color: green;
+    display: block;
+    margin: auto;
+    border-radius: 15px;
+    }
+
+.body{
+    display: grid;
+    grid-template-columns:  200px 1fr;    
+    height: 100vh;
+}
+
+.sidebar{
+    background-color: lightblue;
+    padding: 5px;
+}
+
+.main{
+    background-color: lightgreen;
+    padding: 5px;
+    color: black;
+}
+
+.tab {
+    display: none;
+}
+.home{
+    padding: 10px;
+    display: block;
+    width: min(600px, 75%);
+}
+
+.map {
+    display: grid;
+    height: 500px;
+    grid-template-columns: 1fr 250px;
+    border-radius: 15px;
+    border: 1px solid black;
+    overflow: hidden; 
+    background-color: cadetblue;
+    
+}
+
+.map-content
+{
+    min-height: 500px;
+    border-right: 1px solid black;
+}
+
+.list-places
+{
+    height: 500px;
+    width: 250px;
+    background-color: white;
+    grid-template-rows: min-content min-content;
+    margin-left: 5px;
+    border-left: 1px solid black;
+}
+
+.list-controls
+{
+    background-color: mediumpurple;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.list-view
+{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-preferences-form div {
+    display: flex;
+    padding: 5px;
+    margin: 5px;
+    gap:10px;
+    background-color: thistle;
+    height:max-content;
+    width: 400px;
+    justify-content: center; 
+    align-items: center;
+    border : 1px solid black;
+  }
+  
+dialog.place-edit-modal {
+    padding: 2em;
+    background: linear-gradient(to bottom, #eee, #fff);
+    border: 1px solid lightgray
+}
+
+dialog.place-edit-modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 250px;
+}
+
+.lat-error, .lng-error{
+    color: red;
+    visibility: hidden;
+    font-size: 0.7em;
+}
+
+.show {
+    visibility: visible;
+}
+
+.active-tab {
+    display: block;
+}
+
+.invalid {
+    border: 1px solid red;
+}
