@@ -1,4 +1,4 @@
-import { mapService } from '../map.service.js'
+import { mapService } from '../services/map.service.js'
 import { storageServiceAsync } from '../services/async-storage.service.js'
 import { placeService } from '../services/place.service.js'
 
