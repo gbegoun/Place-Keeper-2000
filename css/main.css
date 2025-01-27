@@ -27,21 +27,21 @@ html, body {
     display: block;
     margin: 5px auto;
     max-width: 100%;
-    top: 50%;
     height: auto;
     border-radius: 15px;
     position: absolute;
-    transform: translateY(-50%);
-    animation: fly-right 7s linear infinite;
+    animation: fly-right 5s linear infinite;
 }
+
 @keyframes fly-right {
     0% {
-        right: 100%; /* Start off-screen on the right */
+        right: calc(100vw); /* Dynamic start off-screen */
     }
     100% {
-        right: -20%; /* Move off-screen on the left */
+        right: calc(-100vw); /* Dynamic end off-screen */
     }
 }
+
 /* Layout Styles */
 .body {
     display: grid;
@@ -137,15 +137,14 @@ html, body {
 }
 
 .list-controls {
-    background-color: rgb(177, 177, 177);
     padding: 5px;
     border-radius: 5px;
     text-align: center;
     color: white;
 }
 
-.btn_map {
-    background-color: white;
+.btn_list {
+    background-color: rgb(234, 234, 234);
     width:49%;
     padding: 5px 5px;
     font-size: 14px;
@@ -154,7 +153,7 @@ html, body {
     cursor: pointer;
 }
 
-.btn_map:hover {
+.btn_list:hover {
     border: 1px solid #0056b3;
     transition: all 0.3s ease-in-out;
 }
@@ -168,10 +167,14 @@ html, body {
 }
 
 .place {
+    display: flex;
     background-color:#eeeeee;
     padding: 5px;
+    cursor: pointer;
     border-radius: 5px;
     border: 1px solid #d8d8d8;
+    justify-content: space-between;
+    align-items: center;
     box-shadow: 0px 1px 16px rgba(0, 0, 0, 0.1);
 }
 
@@ -181,10 +184,12 @@ html, body {
 }
 
 .btn-place{
-    width:35px;
+    width:20px;
     border-radius: 5px;
     border: 1px solid #949494;
-    height: 25px;
+    color:red;
+    height: 20px;
+    margin-left: auto;
 }
 .btn-place:hover{
     background-color: #a7a7a7;
