@@ -16,6 +16,6 @@ function onTabChange(tab) {
         elSection.classList.remove('active-tab')
     })
 
-    const elSection = document.querySelector(`[name="${tab}"]`);
+    const elSection = document.querySelector(`[data-tab="${tab}"]`);
     elSection.classList.add('active-tab')
 }

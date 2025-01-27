@@ -68,8 +68,8 @@ async function populatePlaceList(){
 	.then(places => {
 		var strHtml = places.map(place => `
 			<div class="place"><input type="checkbox" id='${place.id}' ${place.checked ? 'checked' : '' } onChange="app.onCheckboxChange(event)">${place.name} 
-				<button id='${place.id}' onclick="app.PlaceController.onRemovePlace(event)">X</button>
-				<button id='${place.id}' onclick="app.PlaceController.onClickedGo(event)">Go</button>
+				<button class='btn-place' id='${place.id}' onclick="app.PlaceController.onRemovePlace(event)">X</button>
+				<button class='btn-place' id='${place.id}' onclick="app.PlaceController.onClickedGo(event)">Go</button>
 			</div>`)
 		document.querySelector('.list-view').innerHTML = strHtml.join('')
 		renderMarkers()
