@@ -2,7 +2,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    background-color: rgb(236, 236, 236);
+    background-color: rgb(248, 248, 248);
     font-family: Arial, sans-serif;
     color: #333;
     line-height: 1.6;
@@ -11,28 +11,37 @@ html, body {
 
 /* Header Styles */
 .header {
-    background-color: rgb(192, 67, 155);
-    margin: 10px;
-    color: white;
-/* Header Styles */
-.header {
-    background-color: rgb(104, 104, 104);
+    background-color: rgb(126, 148, 196);
     margin: 10px;
     color: white;
     padding: 5px;
     text-align: center;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden; 
+    height: 200px;
 }
 
 .banner {
     display: block;
     margin: 5px auto;
     max-width: 100%;
+    top: 50%;
     height: auto;
     border-radius: 15px;
+    position: absolute;
+    transform: translateY(-50%);
+    animation: fly-right 7s linear infinite;
 }
-
+@keyframes fly-right {
+    0% {
+        right: 100%; /* Start off-screen on the right */
+    }
+    100% {
+        right: -20%; /* Move off-screen on the left */
+    }
+}
 /* Layout Styles */
 .body {
     display: grid;
@@ -44,13 +53,13 @@ html, body {
 }
 
 .sidebar {
-    background-color: #D2DFED;
+    background-color: #bfccdb;
     padding-top: 5px;
     padding-left:15px;
     padding-right:15px;
 
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .sidebar .nav ul {
@@ -84,7 +93,7 @@ html, body {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
     overflow-y: auto;
 }
 
@@ -98,7 +107,7 @@ html, body {
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: min(600px, 80%);
+    width: min(700px, 80%);
     margin: auto;
 }
 
@@ -159,9 +168,11 @@ html, body {
 }
 
 .place {
-    background-color:#f1f1f1;
+    background-color:#eeeeee;
     padding: 5px;
     border-radius: 5px;
+    border: 1px solid #d8d8d8;
+    box-shadow: 0px 1px 16px rgba(0, 0, 0, 0.1);
 }
 
 .place:hover {
@@ -172,6 +183,7 @@ html, body {
 .btn-place{
     width:35px;
     border-radius: 5px;
+    border: 1px solid #949494;
     height: 25px;
 }
 .btn-place:hover{
