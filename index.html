@@ -14,8 +14,8 @@
 			 	<img src="assets/images/banner.gif" alt="Place Keeper 2000" class="banner"/>
 		</header>
 
-		<section class="body">
-			<section class="sidebar">
+		<div class="body">
+			<aside class="sidebar">
 				<nav class="nav">
 					<ul>
 						<li><a href="#" onclick="app.MainController.onTabChange('home')">Home</a></li>
@@ -23,88 +23,98 @@
 						<li><a href="#" onclick="app.MainController.onTabChange('user-prf')">Preferences</a></li>
 					</ul>
 				</nav>
-			</section>
+			</aside>
 
-			<section class="main">
-				<section class="tab" name="home">
+			<main class="main">
+				<article class="tab" data-tab="home">
 					<section class="home">
 						<h1>Welcome to Place Keeper 2000</h1>
 						<p></p>
 						<p>The Place Keeper 2000, folks, it’s tremendous, absolutely fantastic! A beautiful web app, very simple, but powerful, believe me. You can track your favorite places—your BEST places, okay? You can add ‘em, edit ‘em, delete ‘em—whatever you want, it’s all possible. And get this—you can export them to a CSV file, incredible, right? It’s efficient, it’s great, nobody’s ever seen anything like it. You’re gonna love it, folks, trust me!</p>
 					</section>	
-				</section>
+				</article>
 				
 				
-				<section class="tab" name="map">
+				<article class="tab" data-tab="map">
 					<section class="map">
 						<div class="map-content"></div>
 						<section class="list-places">
 							<div class="list-controls">
-								<button class="btn_add_location" onclick="app.PlaceController.onAddPlace()">Add Place</button>
-								<button class="btn_add_location" onclick="app.PlaceController.onAddRandom()">Add random</button>
+								<button class="btn_map" onclick="app.PlaceController.onAddPlace()">Add Place</button>
+								<button class="btn_map" onclick="app.PlaceController.onAddRandom()">Add random</button>
 							</div>	
 							<div class="list-view"></div>
 							<br>
-							<a href="#" onclick="app.onExportToCSV()">Download As CSV</a>
+							<a href="#" class="btn-csv" onclick="app.onExportToCSV()">Download As CSV</a>
 						</section>
 					</section>
-				</section>
+				</article>
 
-				<section class="tab" name="user-prf">
+				<article class="tab" data-tab="user-prf">
 					<section class="user-prf">
-							<form class="user-preferences-form">
-								<h3>User Preferences</h1>
+						<form class="user-preferences-form">
+							<h3>User Preferences</h3>
+						
+							<!-- User Details Section -->
+							<fieldset class="form-section">
+								<legend>User Details</legend>
+						
 								<div class="form-group">
 									<label for="email">E-Mail</label>
-									<input type="email" name="email" placeholder="Insert your email here" required>
+									<input type="email" name="email" placeholder="Enter your email here" required>
 								</div>
-					
+						
 								<div class="form-group">
 									<label for="age">Age</label>
 									<input type="range" name="age" min="0" max="100" value="18" oninput="ageValue.textContent = this.value">
 									<span id="ageValue">18</span>
 								</div>
-					
-								<h3>Colors -</h3>
-					
-								<div class="form-group">
-									<label for="background-color">Set Background Color</label>
-									<input type="color" name="background-color"/>
-								</div>
-					
-								<div class="form-group">
-									<label for="text-color">Set Text Color</label>
-									<input type="color" name="text-color"/>
-								</div>
-					
+						
 								<div class="form-group">
 									<label for="birth-date">Birth Date</label>
 									<input type="date" name="birth-date">
 								</div>
-					
+						
 								<div class="form-group">
 									<label for="birth-time">Birth Time</label>
 									<input type="time" name="birth-time">
 								</div>
-
+						
 								<div class="form-group">
-									<label for="options">Which team are you?</label>
+									<label for="options">I Am Team...</label>
 									<select name="team-sn" required>
 										<option value="Dean">Dean</option>
 										<option value="Sam">Sam</option>
-										<option value="Other">I suck, I dont know who they are</option>
+										<option value="Other">Who?</option>
 									</select>
 								</div>
-
-								<div class = "form-buttons">
-									<button type="submit" class="btn">Set</button>
-									<button type="button" class="btn" onclick="app.userPrfController.onReset()">Reset</button>
+							</fieldset>
+						
+							<!-- Color Preferences Section -->
+							<fieldset class="form-section">
+								<legend>Color Preferences</legend>
+						
+								<div class="form-group">
+									<label for="background-color">Background Color</label>
+									<input type="color" name="background-color">
 								</div>
-							</form>
+						
+								<div class="form-group">
+									<label for="text-color">Text Color</label>
+									<input type="color" name="text-color">
+								</div>
+							</fieldset>
+						
+							<!-- Buttons -->
+							<div class="form-buttons">
+								<button type="submit" class="btn btn-primary">Set</button>
+								<button type="button" class="btn btn-secondary" onclick="app.userPrfController.onReset()">Reset</button>
+							</div>
+						</form>
 						</section>
-				</section>
-			</section>
-		</section>
+				</article>
+			</main>
+		</div>
 		
 		
 		<dialog class="place-edit-modal">
@@ -132,9 +142,9 @@
 			});
 		  </script>
 
-		<script type="module" src="js/controllers/main.controller.js"></script>		
-		<script type="module" src="js/controllers/place.controller.js"></script>	
-		<script type="module" src="js/controllers/user-prf.controller.js"></script>	
+		<script type="module" src="js/controllers/main.controller.js" defer></script>		
+		<script type="module" src="js/controllers/place.controller.js" defer></script>	
+		<script type="module" src="js/controllers/user-prf.controller.js" defer></script>	
 			
 		<script type="module" src="js/app.js"></script>		
 	</body>

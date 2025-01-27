@@ -51,7 +51,7 @@ function _populatePreferences(){
     else
     {
         document.querySelector('.user-preferences-form').reset()
-        document.querySelector('input[name="background-color"]').value = "#90ee90"
+        document.querySelector('input[name="background-color"]').value = "#D2DFED"
         document.querySelector('input[name="text-color"]').value = "#000000"
     }
 }

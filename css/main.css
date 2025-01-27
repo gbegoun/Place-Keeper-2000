@@ -1,107 +1,274 @@
+/* General Styles */
 html, body {
-    margin: 5; 
-    background-color: antiquewhite;
-  }
+    margin: 0;
+    padding: 0;
+    background-color: rgb(236, 236, 236);
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    box-sizing: border-box;
+}
 
-.header{
-    background-color: purple;
+/* Header Styles */
+.header {
+    background-color: rgb(104, 104, 104);
+    margin: 10px;
+    color: white;
     padding: 5px;
     text-align: center;
-    border-top-left-radius: 15px; 
-    border-top-right-radius: 15px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .banner {
-    background-color: green;
     display: block;
-    margin: auto;
+    margin: 5px auto;
+    max-width: 100%;
+    height: auto;
     border-radius: 15px;
-    }
+}
 
-.body{
+/* Layout Styles */
+.body {
     display: grid;
-    grid-template-columns:  200px 1fr;    
+    grid-template-columns: 250px 1fr;
+    grid-gap: 10px;
     height: 100vh;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-.sidebar{
-    background-color: lightblue;
-    padding: 5px;
+.sidebar {
+    background-color: #D2DFED;
+    padding-top: 5px;
+    padding-left:15px;
+    padding-right:15px;
+
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.main{
-    background-color: lightgreen;
-    padding: 5px;
-    color: black;
+.sidebar .nav ul {
+    list-style: none;
+    padding: 0;
 }
 
+.sidebar .nav ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar .nav ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.sidebar .nav ul li a:hover {
+    background-color: #f0f0f0;
+    border-color: lightblue;
+}
+
+/* Main Content Styles */
+.main {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+/* Tab and Section Styles */
 .tab {
     display: none;
 }
-.home{
-    padding: 10px;
-    display: block;
-    width: min(600px, 75%);
+
+.home {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: min(600px, 80%);
+    margin: auto;
 }
 
 .map {
     display: grid;
-    height: 500px;
     grid-template-columns: 1fr 250px;
-    border-radius: 15px;
-    border: 1px solid black;
-    overflow: hidden; 
-    background-color: cadetblue;
-    
+    min-height: 700px;
+    gap: 10px;
 }
 
-.map-content
-{
-    min-height: 500px;
-    border-right: 1px solid black;
+.map-content {
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
 }
 
-.list-places
-{
-    height: 500px;
-    width: 250px;
+.list-places {
     background-color: white;
-    grid-template-rows: min-content min-content;
+    border: 1px solid #ffffff;
     margin-left: 5px;
-    border-left: 1px solid black;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    border-radius: 10px;
+    box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
 }
 
-.list-controls
-{
-    background-color: mediumpurple;
-    border: 1px solid black;
+.list-controls {
+    background-color: rgb(177, 177, 177);
     padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
 }
 
-.list-view
-{
+.btn_map {
+    background-color: white;
+    width:49%;
+    padding: 5px 5px;
+    font-size: 14px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn_map:hover {
+    border: 1px solid #0056b3;
+    transition: all 0.3s ease-in-out;
+}
+
+.list-view {
     padding: 5px;
     display: flex;
     flex-direction: column;
+    gap: 5px;
+    overflow-y: auto;
 }
 
-.user-preferences-form div {
-    display: flex;
+.place {
+    background-color:#f1f1f1;
     padding: 5px;
-    margin: 5px;
-    gap:10px;
-    background-color: thistle;
-    height:max-content;
-    width: 400px;
-    justify-content: center; 
-    align-items: center;
-    border : 1px solid black;
-  }
-  
+    border-radius: 5px;
+}
+
+.place:hover {
+    background-color: #bdddff;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-place{
+    width:35px;
+    border-radius: 5px;
+    height: 25px;
+}
+.btn-place:hover{
+    background-color: #a7a7a7;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-csv{
+    padding: 5px;
+}
+
+/* Form Styles */
+.user-preferences-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.form-section {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #fff;
+}
+
+.form-section legend {
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 95%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input[type="range"] {
+    width: calc(100% - 50px);
+}
+
+input[type="color"] {
+    display: block;
+    width: 75px;
+    height: 35px;
+    padding: 1px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Button Styles */
+.btn {
+    padding: 10px 10%;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #e2e2e2;
+}
+
+/* Modal Styles */
 dialog.place-edit-modal {
     padding: 2em;
     background: linear-gradient(to bottom, #eee, #fff);
-    border: 1px solid lightgray
+    border: 1px solid lightgray;
 }
 
 dialog.place-edit-modal form {
@@ -111,7 +278,8 @@ dialog.place-edit-modal form {
     width: 250px;
 }
 
-.lat-error, .lng-error{
+/* Error and Validation Styles */
+.lat-error, .lng-error {
     color: red;
     visibility: hidden;
     font-size: 0.7em;
@@ -121,10 +289,11 @@ dialog.place-edit-modal form {
     visibility: visible;
 }
 
-.active-tab {
-    display: block;
-}
-
 .invalid {
     border: 1px solid red;
+}
+
+/* Active Tab Styles */
+.active-tab {
+    display: block;
 }
