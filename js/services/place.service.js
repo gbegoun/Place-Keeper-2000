@@ -24,7 +24,9 @@ function updatePlace(place){
 function removePlace(id){
     return storageServiceAsync.remove(STORAGE_KEY, id)
 }
+
 function getPlaceById(id){
+    console.log('getPlaceById', id)
     return storageServiceAsync.get(STORAGE_KEY, id)
 }
 

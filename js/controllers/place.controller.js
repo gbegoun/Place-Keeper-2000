@@ -64,12 +64,12 @@ async function initMap() {
 }
 
 async function populatePlaceList(){
-	const places = storageServiceAsync.query('places')
+	storageServiceAsync.query('places')
 	.then(places => {
 		var strHtml = places.map(place => `
-			<div class="place"><input type="checkbox" id='${place.id}' ${place.checked ? 'checked' : '' } onChange="app.onCheckboxChange(event)">${place.name} 
-				<button class='btn-place' id='${place.id}' onclick="app.PlaceController.onRemovePlace(event)">X</button>
-				<button class='btn-place' id='${place.id}' onclick="app.PlaceController.onClickedGo(event)">Go</button>
+			<div class="place" onclick="app.PlaceController.onClickedGo('${place.id}')">
+				<input type="checkbox" id='${place.id}' ${place.checked ? 'checked' : '' } onChange="app.onCheckboxChange(event)">${place.name} 
+				<button class='btn-place' onclick="app.PlaceController.onRemovePlace('${place.id}')">X</button>
 			</div>`)
 		document.querySelector('.list-view').innerHTML = strHtml.join('')
 		renderMarkers()
@@ -80,7 +80,6 @@ async function populatePlaceList(){
 }
 
 function renderMarkers(){
-
 	placeService.getAllCheckedPlaces()
 		.then(checkedPlaces => {
 			_removeAllMarkers()
@@ -140,8 +139,9 @@ function onSavePlace(){
 	map.setCenter(coordinates)
 }
 
-function onClickedGo(event){
-	const place = placeService.getPlaceById(event.target.id).then(place => {
+function onClickedGo(id){
+	console.log("Clicked Go", id)
+	const place = placeService.getPlaceById(id).then(place => {
 	map.setCenter(place.coordinates)
 	})
 }
@@ -153,8 +153,8 @@ function onCheckboxChange(event){
 	})
 }
 	
-function onRemovePlace(event){
-	placeService.removePlace(event.target.id).then(() => {
+function onRemovePlace(id){
+	placeService.removePlace(id).then(() => {
 	populatePlaceList()
 	})
 }

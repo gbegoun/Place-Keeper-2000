@@ -70,6 +70,8 @@ function _setupFormValidation() {
         const birth_time = document.querySelector('input[name="birth-time"]').value
         const age = document.querySelector('input[name="age"]')
         let valid = true
+        
+        event.preventDefault() //keep form from submitting and closing
 
         if (birth_date){
             let datetime
@@ -93,6 +95,5 @@ function _setupFormValidation() {
         if(valid){
             onSave()
         }
-        event.preventDefault() //keep form from submitting and closing
     })
   }
